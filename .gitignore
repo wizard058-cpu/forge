@@ -26,3 +26,5 @@ Thumbs.db
 
 # Python cache
 *.egg-info/
+# Collected static files
+staticfiles/
