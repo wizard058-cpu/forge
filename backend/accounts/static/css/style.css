@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+:root{
+    --bg:#0B0F19;
+    --glass:rgba(255,255,255,.08);
+    --border:rgba(255,255,255,.15);
+    --primary:#4F8CFF;
+    --secondary:#7C5CFF;
+    --text:#FFFFFF;
+    --radius:20px;
+}
+/* ===========================
+   FORGE v0.1 Dashboard Theme
+=========================== */
+
+body{
+    margin:0;
+    padding:40px;
+    font-family:'Poppins', sans-serif;
+    color:var(--text);
+
+    background: linear-gradient(
+        135deg,
+        #0B0F19 0%,
+        #151C2E 50%,
+        #0B0F19 100%
+    );
+
+    min-height:100vh;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+h2{
+    color:#00d4ff;
+}
+
+p{
+    font-size:18px;
+}
+
+hr{
+    border:none;
+    height:1px;
+    background:#333;
+    margin:25px 0;
+}
+
+ul{
+    list-style:none;
+    padding-left:0;
+}
+
+li{
+    background:#1e1e1e;
+    margin:10px 0;
+    padding:15px;
+    border-radius:10px;
+}
+
+button{
+    background:#00d4ff;
+    color:#121212;
+    border:none;
+    padding:12px 24px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#00a8cc;
+    transform:scale(1.05);
+}
+
+a{
+    text-decoration:none;
+}
+/* ======================
+Dashboard Layout
+====================== */
+
+.header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+    gap:20px;
+    align-items:start;
+}
+
+.card{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+
+    transition: .3s;
+}
+
+.card:hover{
+    transform: translateY(-6px);
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+}
+
+.card h2{
+
+    margin-top:0;
+
+}
+
+@media(max-width:800px){
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+}
+/* ===========================
+   RAVEN HERO CARD
+=========================== */
+
+.hero-card{
+
+    background: rgba(47,55,74,.85);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:22px;
+
+    padding:30px;
+    margin-bottom:30px;
+
+    transition:all .35s ease;
+}
+
+.hero-card:hover{
+
+   transform:translateY(-4px) scale(1.01);
+
+   box-shadow:
+0 12px 28px rgba(0,0,0,.35),
+0 0 14px rgba(0,212,255,.18);
+
+    border-color:rgba(0,212,255,.25);
+
+}
+
+.hero-card h4{
+
+    color:#7C5CFF;
+
+    margin:0;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+.hero-card h2{
+
+    margin:12px 0;
+
+    font-size:32px;
+
+    color:#00D4FF;
+
+}
+
+.hero-card p{
+
+    margin:8px 0;
+
+    color:#D1D5DB;
+
+    line-height:1.6;
+
+}
+
+.hero-card hr{
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,.10);
+
+    margin:24px 0;
+
+}
+
+.hero-btn{
+
+    margin-top:20px;
+
+    width:230px;
+
+}
+.dashboard{
+    margin-top:35px;
+}
+.header{
+    margin-bottom:40px;
+}
+
+.hero-card{
+    margin-bottom:40px;
+}
+.card{
+    min-height:240px;
+}
+.card{
+    height:100%;
+}
+.hero-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 14px 28px rgba(0,0,0,.30),
+    0 0 14px rgba(0,212,255,.15);
+
+}

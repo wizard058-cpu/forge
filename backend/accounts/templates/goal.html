@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Add Goal - Forge</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>🎯 Add Goal</h1>
+
+        <p>Create your next mission.</p>
+
+    </div>
+
+    <div class="card">
+
+        <form method="POST">
+
+    {% csrf_token %}
+
+    <input
+        type="text"
+        name="title"
+        placeholder="Enter your goal..."
+        required
+    >
+
+    <button type="submit">
+        Save Goal
+    </button>
+
+</form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

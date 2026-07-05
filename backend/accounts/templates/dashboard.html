@@ -1,0 +1,220 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Forge</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <h1>🔥 FORGE</h1>
+        <p>Welcome back, <strong>{{ username }}</strong></p>
+    </div>
+
+    <!-- Raven Hero Card -->
+    <div class="hero-card">
+
+        <h4>🦅 RAVEN</h4>
+
+        <h2>{{ greeting }}, {{ username }}</h2>
+       <p><strong>{{ raven_title }}</strong></p>
+
+<p>{{ raven_message }}</p>
+
+        <hr>
+
+        <p><em>"Discipline today. Freedom tomorrow."</em></p>
+
+        <br>
+
+        <a href="{% url 'daily_review' %}">
+            <button class="hero-btn">
+                Open Daily Briefing →
+            </button>
+        </a>
+
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="dashboard">
+
+        <!-- Morning Briefing -->
+        <div class="card">
+
+            <h2>🌅 Morning Briefing</h2>
+            <a href="{% url 'add_goal' %}">
+    <button style="margin-bottom:15px;">
+        + Add Goal
+    </button>
+</a>
+
+            <p>{{ greeting }}!</p>
+
+           <h3>Today's Goals</h3>
+
+{% if goals %}
+
+<ul>
+
+  {% for goal in goals %}
+
+<li style="margin-bottom:12px;">
+
+    🎯 {{ goal.title }}
+
+    <a href="{% url 'complete_goal' goal.id %}">
+        <button
+            style="
+                float:right;
+                padding:6px 14px;
+                font-size:12px;
+            ">
+            Forge ⚒️
+        </button>
+    </a>
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>No goals yet. Add your first mission.</p>
+
+{% endif %}
+
+<hr>
+<h3>🏆 Missions Forged Today</h3>
+
+{% if forged_goals %}
+
+<ul>
+
+    {% for goal in forged_goals %}
+
+    <li>✅ {{ goal.title }}</li>
+
+    {% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>No missions forged yet.</p>
+
+{% endif %}
+
+<p>
+    📝 Daily Review :
+    {% if review_completed %}
+        ✅ Completed
+    {% else %}
+        ⏳ Pending
+    {% endif %}
+</p>
+<p>🔥 Goals Completed : {{ completed_goals }}</p>
+<p>🔥 Current Streak : {{ streak }} day{{ streak|pluralize }}</p>
+</div>
+
+<div class="card">
+
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h2>📂 Projects</h2>
+
+        <a href="{% url 'add_project' %}">
+            <button style="margin-bottom:15px;">
+                + Add Project
+            </button>
+        </a>
+    </div>
+
+    <h3>Active Projects</h3>
+
+    {% if projects %}
+        <ul>
+        {% for project in projects %}
+            <li style="margin-bottom:12px;">
+                📂 {{ project.title }}
+
+                <a href="{% url 'complete_project' project.id %}">
+                    <button style="float:right;padding:6px 14px;font-size:12px;">
+                        Forge ⚒️
+                    </button>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No active projects.</p>
+    {% endif %}
+
+    <hr>
+
+    <h3>✅ Completed Projects</h3>
+
+    {% if completed_projects %}
+        <ul>
+        {% for project in completed_projects %}
+            <li>✅ {{ project.title }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No completed projects yet.</p>
+    {% endif %}
+
+</div>
+
+
+        <!-- Quick Stats -->
+        <div class="card">
+
+            <h2>📊 Quick Stats</h2>
+
+            <p>📝 Reviews Completed : {{ review_count }}</p>
+
+<p>📂 Projects : {{ project_count }}</p>
+
+<p>🏆 Goals Completed : {{ completed_goals }}</p>
+        </div>
+
+        <!-- Daily Review -->
+        <div class="card">
+
+            <h2>📝 Daily Review</h2>
+
+            <p>Reflect on your day and track your progress.</p>
+
+            <a href="{% url 'daily_review' %}">
+                <button>Open Daily Review</button>
+            </a>
+
+        </div>
+
+        <!-- Account -->
+        <div class="card">
+
+            <h2>🚪 Account</h2>
+
+            <a href="{% url 'logout' %}">
+                <button>Logout</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Project</title>
+</head>
+<body>
+
+<h1>Add Project</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input
+        type="text"
+        name="title"
+        placeholder="Project Title"
+        required
+    >
+
+    <br><br>
+
+    <textarea
+        name="description"
+        placeholder="Description"
+    ></textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Add Project
+    </button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Review | Forge</title>
+</head>
+<body>
+
+    <h1>Daily Review</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Day Rating (1-10)</label><br>
+        <input type="number" name="day_rating" min="1" max="10" required><br><br>
+
+        <label>Reflection</label><br>
+        <textarea name="reflection" rows="4" cols="50" required></textarea><br><br>
+
+        <label>Biggest Win</label><br>
+        <textarea name="biggest_win" rows="2" cols="50" required></textarea><br><br>
+
+        <label>Tomorrow's Focus</label><br>
+        <textarea name="tomorrow_focus" rows="2" cols="50" required></textarea><br><br>
+
+        <button type="submit">Save Review</button>
+
+    </form>
+
+</body>
+</html>
