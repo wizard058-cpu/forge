@@ -1,30 +1,89 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Daily Review | Forge</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
+
 <body>
 
-    <h1>Daily Review</h1>
+<div class="container">
 
-    <form method="POST">
-        {% csrf_token %}
+    <div class="hero-card">
 
-        <label>Day Rating (1-10)</label><br>
-        <input type="number" name="day_rating" min="1" max="10" required><br><br>
+        <h4>📝 DAILY REVIEW</h4>
 
-        <label>Reflection</label><br>
-        <textarea name="reflection" rows="4" cols="50" required></textarea><br><br>
+        <h2>Reflect. Improve. Forge Again.</h2>
 
-        <label>Biggest Win</label><br>
-        <textarea name="biggest_win" rows="2" cols="50" required></textarea><br><br>
+        <p>
+            Every review strengthens tomorrow's discipline.
+        </p>
 
-        <label>Tomorrow's Focus</label><br>
-        <textarea name="tomorrow_focus" rows="2" cols="50" required></textarea><br><br>
+    </div>
 
-        <button type="submit">Save Review</button>
+    <div class="card">
 
-    </form>
+        <h2>Today's Review</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Day Rating (1–10)</label>
+
+            <input
+                type="number"
+                name="day_rating"
+                min="1"
+                max="10"
+                required
+            >
+
+            <label>Reflection</label>
+
+            <textarea
+                name="reflection"
+                rows="5"
+                required
+            ></textarea>
+
+            <label>Biggest Win</label>
+
+            <textarea
+                name="biggest_win"
+                rows="3"
+                required
+            ></textarea>
+
+            <label>Tomorrow's Focus</label>
+
+            <textarea
+                name="tomorrow_focus"
+                rows="3"
+                required
+            ></textarea>
+
+            <br>
+
+            <button class="btn btn-primary" type="submit">
+                Save Review
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
 
 </body>
+
 </html>

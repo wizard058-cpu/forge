@@ -1,31 +1,88 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Register - Forge</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Forge</title>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>Create Account</h1>
+<div class="container">
 
-       <form method="POST">
-    {% csrf_token %}
-            <input type="text" name="username" placeholder="Username">
-            <br><br>
+    <div class="hero-card">
 
-           <input type="email" name="email" placeholder="Email">
-            <br><br>
+        <h4>🔥 FORGE</h4>
 
-            <input type="password" name="password" placeholder="Password">
-            <br><br>
+        <h2>Join the Forge</h2>
 
-            <button type="submit">Register</button>
-        </form>
+        <p>
+            Build discipline. Track progress. Become unstoppable.
+        </p>
 
     </div>
+
+    <div class="card">
+
+        <h2>Create Account</h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Choose a username"
+                required
+            >
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Create a password"
+                required
+            >
+
+            <button class="btn btn-primary" type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <br>
+
+        <p>
+            Already have an account?
+            <a href="{% url 'login' %}">
+                Login here
+            </a>
+        </p>
+
+    </div>
+
+</div>
 
 </body>
 </html>

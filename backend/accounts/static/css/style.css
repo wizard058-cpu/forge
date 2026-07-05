@@ -29,8 +29,8 @@ body{
 }
 
 .container{
-    width:90%;
-    max-width:1200px;
+    width:95%;
+    max-width:1600px;
     margin:auto;
 }
 
@@ -88,7 +88,7 @@ a{
     text-decoration:none;
 }
 /* ======================
-Dashboard Layout
+   Dashboard Layout
 ====================== */
 
 .header{
@@ -98,9 +98,27 @@ Dashboard Layout
 
 .dashboard{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(3, minmax(320px, 1fr));
+    gap:24px;
     align-items:start;
+    margin-top:35px;
+}
+.dashboard-column{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+@media (max-width:1200px){
+    .dashboard{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media (max-width:768px){
+    .dashboard{
+        grid-template-columns:1fr;
+    }
 }
 
 .card{
@@ -108,44 +126,38 @@ Dashboard Layout
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 
-    border: 1px solid rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:var(--radius);
 
-    border-radius: var(--radius);
+    padding:25px;
 
-    padding: 25px;
+    box-shadow:0 8px 32px rgba(0,0,0,0.25);
 
-    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    transition:.3s;
+}
 
-    transition: .3s;
+.dashboard-column .card{
+    margin-bottom:24px;
+}
+
+.dashboard-column .card:last-child{
+    margin-bottom:0;
 }
 
 .card:hover{
-    transform: translateY(-6px);
-    border: 1px solid rgba(255,255,255,0.35);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+    transform:translateY(-6px);
+    border-color:rgba(255,255,255,0.35);
+    box-shadow:0 15px 40px rgba(0,0,0,0.18);
 }
 
 .card h2{
-
     margin-top:0;
-
-}
-
-@media(max-width:800px){
-
-.dashboard{
-
-grid-template-columns:1fr;
-
-}
-
 }
 /* ===========================
    RAVEN HERO CARD
 =========================== */
 
 .hero-card{
-
     background: rgba(47,55,74,.85);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -154,96 +166,252 @@ grid-template-columns:1fr;
     border-radius:22px;
 
     padding:30px;
-    margin-bottom:30px;
+    margin-bottom:40px;
 
     transition:all .35s ease;
 }
 
 .hero-card:hover{
+    transform:translateY(-4px) scale(1.01);
 
-   transform:translateY(-4px) scale(1.01);
-
-   box-shadow:
-0 12px 28px rgba(0,0,0,.35),
-0 0 14px rgba(0,212,255,.18);
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.35),
+        0 0 14px rgba(0,212,255,.18);
 
     border-color:rgba(0,212,255,.25);
-
 }
 
 .hero-card h4{
-
     color:#7C5CFF;
-
     margin:0;
-
     font-size:13px;
-
     letter-spacing:2px;
-
     text-transform:uppercase;
-
 }
 
 .hero-card h2{
-
     margin:12px 0;
-
     font-size:32px;
-
     color:#00D4FF;
-
 }
 
 .hero-card p{
-
     margin:8px 0;
-
     color:#D1D5DB;
-
     line-height:1.6;
-
 }
 
 .hero-card hr{
-
     border:none;
-
     border-top:1px solid rgba(255,255,255,.10);
-
     margin:24px 0;
-
 }
 
 .hero-btn{
-
     margin-top:20px;
-
     width:230px;
+}
 
-}
-.dashboard{
-    margin-top:35px;
-}
 .header{
     margin-bottom:40px;
 }
 
-.hero-card{
-    margin-bottom:40px;
+/* ===========================
+   FORGE DESIGN SYSTEM v1.0
+=========================== */
+
+/* Buttons */
+.btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border:none;
+    border-radius:12px;
+
+    padding:12px 20px;
+
+    font-size:14px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
 }
-.card{
+.btn-primary{
+    background:#00D4FF;
+    color:#0B0F19;
+}
+
+.btn-primary:hover{
+    background:#00B8DD;
+    transform:translateY(-2px);
+}
+
+.btn-success{
+    padding:6px 14px;
+    font-size:12px;
+}
+
+/* Layout */
+
+.section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+}
+
+.card-title{
+    flex:1;
+}
+
+/* Lists */
+
+.goal-item,
+.project-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:18px;
+}
+
+.goal-item span,
+.project-item span{
+    flex:1;
+    word-break:break-word;
+}
+
+.project-item .btn{
+    flex-shrink:0;
+    min-width:72px;
+}
+
+/* ===========================
+   FORGE UI SYSTEM v2.0
+=========================== */
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+.card-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex:1;
+    font-size:28px;
+    font-weight:600;
+    color:#ffffff;
+}
+
+.card-header .btn{
+    flex-shrink:0;
+}
+
+.card-body{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.card-footer{
+    margin-top:20px;
+    padding-top:18px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+.quick-stats{
     min-height:240px;
 }
-.card{
-    height:100%;
+
+/* ===========================
+   FORGE FORMS
+=========================== */
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
 }
-.hero-card:hover{
 
-    transform:translateY(-4px);
+label{
+    font-weight:600;
+    color:#E5E7EB;
+}
 
-    box-shadow:
-    0 14px 28px rgba(0,0,0,.30),
-    0 0 14px rgba(0,212,255,.15);
+input,
+textarea{
 
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1E2535;
+
+    color:white;
+
+    font-size:15px;
+
+    box-sizing:border-box;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+
+input:focus,
+textarea:focus{
+
+    border:1px solid #00D4FF;
+
+    box-shadow:0 0 12px rgba(0,212,255,.25);
+
+}
+
+textarea{
+
+    resize:vertical;
+
+    min-height:120px;
+
+}
+form .btn{
+    width:220px;
+    align-self:flex-start;
+}
+/* ===========================
+   AUTH PAGES
+=========================== */
+
+.card form{
+    max-width:500px;
+}
+
+.card{
+    overflow:hidden;
+}
+/* ===========================
+   AUTH PAGES
+=========================== */
+
+.card form{
+    max-width:500px;
+    margin:0 auto;
+}
+
+.card h2{
+    text-align:center;
 }

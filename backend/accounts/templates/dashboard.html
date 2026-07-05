@@ -47,12 +47,15 @@
     <!-- Dashboard Cards -->
     <div class="dashboard">
 
+    <!-- Left Column -->
+    <div class="dashboard-column">
+
         <!-- Morning Briefing -->
         <div class="card">
 
             <h2>🌅 Morning Briefing</h2>
             <a href="{% url 'add_goal' %}">
-    <button style="margin-bottom:15px;">
+    <button class="btn btn-primary">
         + Add Goal
     </button>
 </a>
@@ -67,18 +70,13 @@
 
   {% for goal in goals %}
 
-<li style="margin-bottom:12px;">
+<li class="goal-item">
 
-    🎯 {{ goal.title }}
+    <span>🎯 {{ goal.title }}</span>
 
     <a href="{% url 'complete_goal' goal.id %}">
-        <button
-            style="
-                float:right;
-                padding:6px 14px;
-                font-size:12px;
-            ">
-            Forge ⚒️
+        <button class="btn btn-primary btn-success">
+           ⚒ Forge
         </button>
     </a>
 
@@ -125,96 +123,139 @@
 </p>
 <p>🔥 Goals Completed : {{ completed_goals }}</p>
 <p>🔥 Current Streak : {{ streak }} day{{ streak|pluralize }}</p>
-</div>
+</div>      <!-- Morning Briefing Card -->
 
+</div>      <!-- Left Column -->
+
+<!-- Center Column -->
+<div class="dashboard-column">
+
+<!-- Projects -->
 <div class="card">
 
-    <div style="display:flex;justify-content:space-between;align-items:center;">
-        <h2>📂 Projects</h2>
+    <div class="card-header">
+
+        <div class="card-title">
+            📂 <span>Projects</span>
+        </div>
 
         <a href="{% url 'add_project' %}">
-            <button style="margin-bottom:15px;">
+            <button class="btn btn-primary">
                 + Add Project
             </button>
         </a>
-    </div>
-
-    <h3>Active Projects</h3>
-
-    {% if projects %}
-        <ul>
-        {% for project in projects %}
-            <li style="margin-bottom:12px;">
-                📂 {{ project.title }}
-
-                <a href="{% url 'complete_project' project.id %}">
-                    <button style="float:right;padding:6px 14px;font-size:12px;">
-                        Forge ⚒️
-                    </button>
-                </a>
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No active projects.</p>
-    {% endif %}
-
-    <hr>
-
-    <h3>✅ Completed Projects</h3>
-
-    {% if completed_projects %}
-        <ul>
-        {% for project in completed_projects %}
-            <li>✅ {{ project.title }}</li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No completed projects yet.</p>
-    {% endif %}
-
-</div>
-
-
-        <!-- Quick Stats -->
-        <div class="card">
-
-            <h2>📊 Quick Stats</h2>
-
-            <p>📝 Reviews Completed : {{ review_count }}</p>
-
-<p>📂 Projects : {{ project_count }}</p>
-
-<p>🏆 Goals Completed : {{ completed_goals }}</p>
-        </div>
-
-        <!-- Daily Review -->
-        <div class="card">
-
-            <h2>📝 Daily Review</h2>
-
-            <p>Reflect on your day and track your progress.</p>
-
-            <a href="{% url 'daily_review' %}">
-                <button>Open Daily Review</button>
-            </a>
-
-        </div>
-
-        <!-- Account -->
-        <div class="card">
-
-            <h2>🚪 Account</h2>
-
-            <a href="{% url 'logout' %}">
-                <button>Logout</button>
-            </a>
-
-        </div>
 
     </div>
 
+    <div class="card-body">
+
+        <h3>Active Projects</h3>
+
+        {% if projects %}
+
+            <ul>
+
+            {% for project in projects %}
+
+                <li class="project-item">
+
+                    <span>📂 {{ project.title }}</span>
+
+                    <a href="{% url 'complete_project' project.id %}">
+                        <button class="btn btn-primary btn-success">
+                            ⚒ Forge
+                        </button>
+                    </a>
+
+                </li>
+
+            {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            <p>No active projects.</p>
+
+        {% endif %}
+
+    </div>
+
+    <div class="card-footer">
+
+        <h3>✅ Completed Projects</h3>
+
+        {% if completed_projects %}
+
+            <ul>
+
+            {% for project in completed_projects %}
+
+                <li>✅ {{ project.title }}</li>
+
+            {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            <p>No completed projects yet.</p>
+
+        {% endif %}
+
+    </div>
+
+    </div>      <!-- Projects Card -->
+
+</div>      <!-- Center Column -->
+
+<!-- Right Column -->
+<div class="dashboard-column">
+    <div class="dashboard-column">
+
+      <!-- Quick Stats -->
+<div class="card quick-stats">
+
+    <h2>📊 Quick Stats</h2>
+    <p>📝 Reviews Completed : {{ review_count }}</p>
+    <p>📂 Projects : {{ project_count }}</p>
+    <p>🏆 Goals Completed : {{ completed_goals }}</p>
+
 </div>
+
+<!-- Daily Review -->
+<div class="card">
+
+    <h2>📝 Daily Review</h2>
+
+    <p>Reflect on your day and track your progress.</p>
+
+    <a href="{% url 'daily_review' %}">
+        <button class="btn btn-primary">
+            Open Daily Review
+        </button>
+    </a>
+
+</div>
+
+<!-- Account -->
+<div class="card">
+
+    <h2>🚪 Account</h2>
+
+    <a href="{% url 'logout' %}">
+        <button class="btn btn-primary">
+            Logout
+        </button>
+    </a>
+
+</div>   <!-- Account Card -->
+
+</div>   <!-- Right Column -->
+
+</div>   <!-- Dashboard -->
+
+</div>   <!-- Container -->
 
 </body>
 </html>

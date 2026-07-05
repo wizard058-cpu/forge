@@ -25,24 +25,30 @@
 
     <div class="card">
 
-        <form method="POST">
+    <h2>🎯 New Mission</h2>
 
-    {% csrf_token %}
+    <form method="POST">
 
-    <input
-        type="text"
-        name="title"
-        placeholder="Enter your goal..."
-        required
-    >
+        {% csrf_token %}
 
-    <button type="submit">
-        Save Goal
-    </button>
+        <label>Mission Title</label>
 
-</form>
+        <input
+            type="text"
+            name="title"
+            placeholder="Enter your next mission..."
+            required
+        >
 
-    </div>
+        <br><br>
+
+        <button class="btn btn-primary" type="submit">
+            Save Goal
+        </button>
+
+    </form>
+
+</div>
 
 </div>
 

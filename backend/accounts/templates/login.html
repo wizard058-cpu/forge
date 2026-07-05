@@ -1,39 +1,77 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Login - Forge</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Forge</title>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>🔥 Forge Login</h1>
+    <div class="hero-card">
 
-    <form method="POST">
-        {% csrf_token %}
+        <h4>🔥 FORGE</h4>
 
-        <input type="text" name="username" placeholder="Username">
-        <br><br>
+        <h2>Welcome Back</h2>
 
-        <input type="password" name="password" placeholder="Password">
-        <br><br>
+        <p>
+            Continue forging your discipline.
+        </p>
 
-        <button type="submit">Login</button>
+    </div>
 
-    </form>
+    <div class="card">
 
-    <br>
+        <h2>Login</h2>
 
-    <p>
-        Don't have an account?
-        <a href="{% url 'register' %}">
-            Create one here
-        </a>
-    </p>
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button class="btn btn-primary" type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <br>
+
+        <p>
+            Don't have an account?
+            <a href="{% url 'register' %}">
+                Create one here
+            </a>
+        </p>
+
+    </div>
 
 </div>
 
