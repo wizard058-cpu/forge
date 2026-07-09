@@ -3,18 +3,14 @@
   "builds": [
     {
       "src": "forge/wsgi.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "staticfiles/(.*)",
-      "use": "@vercel/static"
+      "use": "@vercel/python",
+      "config": {
+        "installCommand": "pip install -r requirements.txt",
+        "buildCommand": "bash build_files.sh"
+      }
     }
   ],
   "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/staticfiles/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "forge/wsgi.py"
